@@ -68,7 +68,7 @@ def stats(user):
                 locations="Country",
                 locationmode="country names",
                 color=selected_stat,
-                color_continuous_scale=[[0, "#FFFFFF"], [1, "#FF4D00"]],
+                color_continuous_scale=[[0, "#FFFFFF"], [1, "#4169E1"]],
                 hover_name="Country",
                 hover_data=[selected_stat]
             )
