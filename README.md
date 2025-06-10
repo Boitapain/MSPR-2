@@ -14,7 +14,6 @@ Avant de lancer les conteneurs Docker, il est nécessaire d'initialiser la base 
 Depuis le dossier `app`, exécutez la commande suivante :
 
 ```sh
-cd app
 touch disease_track.db
 ```
 
