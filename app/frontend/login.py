@@ -5,7 +5,7 @@ import os
 api_url = os.getenv('API_URL', 'http://127.0.0.1:5000') 
 
 def login():
-    st.markdown("<h1 style='text-align: center;'>Disease track <img style='width:40px;' src='https://open.gitbook.com/~gitbook/image?url=https%3A%2F%2F4141789323-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Forganizations%252Fu9WT6puw9kHCPITtWSCY%252Fsites%252Fsite_dWsRi%252Ficon%252FbWVB6Yfwt8HDjQZq3ceg%252FChanger%2520Couleurs%2520PNG.png%3Falt%3Dmedia%26token%3D1b09cb73-feab-4508-9750-82cc96920a70&width=48&height=48&sign=d8eb1004&sv=2'/></h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Disease track <img style='width:40px;' src='https://mspr-team.gitbook.io/~gitbook/image?url=https%3A%2F%2F4141789323-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Forganizations%252Fu9WT6puw9kHCPITtWSCY%252Fsites%252Fsite_dWsRi%252Ficon%252FngObCdhfrJl7KEq70xGH%252FChanger%2520couleurs%2520PNG%2520%281%29.png%3Falt%3Dmedia%26token%3D83947e0c-3451-4fcd-96bb-44a7447036d0&width=32&dpr=2&quality=100&sign=67c622a5&sv=2'/></h1>", unsafe_allow_html=True)
     st.subheader("Login")
     
     email = st.text_input("Email")
