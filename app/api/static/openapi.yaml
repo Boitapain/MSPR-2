@@ -1,0 +1,277 @@
+openapi: 3.0.0
+info:
+  title: Disease Track API
+  version: 0.1.0
+  description: API for Disease Track application
+
+paths:
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        "200":
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        email:
+                          type: string
+                        isAdmin:
+                          type: boolean
+        "404":
+          description: No users found
+        "500":
+          description: Internal server error
+
+  /register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "201":
+          description: User registered successfully
+        "400":
+          description: All fields are required
+        "500":
+          description: Internal server error
+
+  /login:
+    post:
+      summary: Login a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: User logged in successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      isAdmin:
+                        type: boolean
+        "401":
+          description: Invalid email or password
+
+  /update_users:
+    put:
+      summary: Update users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                users:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      isAdmin:
+                        type: boolean
+      responses:
+        "200":
+          description: Users updated successfully
+        "400":
+          description: No data provided or data contains null values
+        "500":
+          description: Internal server error
+  
+  /update_password:
+    put:
+      summary: Update user password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                old_password:
+                  type: string
+                new_password:
+                  type: string
+                confirm_password:
+                  type: string
+      responses:
+        "200":
+          description: Mot de passe mis à jour avec succès.
+        "400":
+          description: Tous les champs sont requis ou les nouveaux mots de passe ne correspondent pas.
+        "401":
+          description: Ancien mot de passe incorrect.
+        "500":
+          description: Internal server error
+
+  /diseases:
+    get:
+      summary: Get all diseases
+      responses:
+        "200":
+          description: A list of diseases
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  diseases:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Id:
+                          type: integer
+                        Nom:
+                          type: string
+                        Country_Region:
+                          type: string
+                        Confirmed:
+                          type: integer
+                        Deaths:
+                          type: integer
+                        Recovered:
+                          type: integer
+                        Active:
+                          type: integer
+                        New_cases:
+                          type: integer
+                        New_deaths:
+                          type: integer
+                        New_recovered:
+                          type: integer
+        "404":
+          description: No diseases found
+        "500":
+          description: Internal server error
+
+  /update_diseases_route:
+    put:
+      summary: Update diseases
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                diseases:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      Id:
+                        type: integer
+                      Nom:
+                        type: string
+                      Country_Region:
+                        type: string
+                      Confirmed:
+                        type: integer
+                      Deaths:
+                        type: integer
+                      Recovered:
+                        type: integer
+                      Active:
+                        type: integer
+                      New_cases:
+                        type: integer
+                      New_deaths:
+                        type: integer
+                      New_recovered:
+                        type: integer
+      responses:
+        "200":
+          description: Diseases updated successfully
+        "400":
+          description: No data provided or data contains null values
+        "500":
+          description: Internal server error
+
+  /predict:
+    post:
+      summary: Predict disease progression
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cases:
+                  type: integer
+                  description: Number of confirmed cases (lag 1)
+                deaths:
+                  type: integer
+                  description: Number of deaths (lag 1)
+                recovered:
+                  type: integer
+                  description: Number of recovered cases (lag 1)
+                country:
+                  type: integer
+                  description: Encoded country value
+      responses:
+        "200":
+          description: Prediction result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prediction:
+                    type: array
+                    items:
+                      type: number
+        "400":
+          description: No data provided
+        "500":
+          description: Internal server error

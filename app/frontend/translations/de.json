@@ -1,0 +1,217 @@
+{
+    "dashboard": {
+        "navigation": {
+            "home": "Startseite",
+            "home_help": "Zur Startseite navigieren",
+            "api_docs": "API-Dokumentation",
+            "api_docs_help": "Zur API-Dokumentation gehen"
+        },
+        "sections": {
+            "data_management": "Datenverwaltung",
+            "data_visualization": "Datenvisualisierung",
+            "settings": "Einstellungen"
+        },
+        "buttons": {
+            "csv_import": "CSV-Import",
+            "csv_import_help": "Zur CSV-Import-Seite gehen",
+            "database": "Datenbank",
+            "database_help": "Zur Datenbankseite gehen",
+            "statistics": "Statistiken",
+            "statistics_help": "Zur Statistikseite gehen",
+            "predictions": "KI-Vorhersagen",
+            "predictions_help": "Zur Vorhersageseite gehen",
+            "manage_users": "Benutzerverwaltung",
+            "manage_users_help": "Zur Benutzerverwaltung gehen",
+            "profile": "Profil",
+            "profile_help": "Zu Ihrem Profil gehen"
+        }
+    },
+    "page_titles": {
+        "home": "Startseite",
+        "csv_import": "CSV-Import",
+        "database": "Datenbank",
+        "statistics": "Statistiken",
+        "profile": "Profil",
+        "predictions": "KI-Vorhersagen",
+        "manage_users": "Benutzerverwaltung"
+    },
+    "home": {
+        "welcome": "Willkommen zurück, {name}! 👋",
+        "intro": {
+            "title": "Krankheitsmonitoring-Dashboard",
+            "description": "Hier können Sie Krankheitsdaten überwachen und analysieren, Datensätze verwalten und globale Gesundheitstrends einsehen."
+        },
+        "actions": {
+            "title": "Was möchten Sie heute tun?",
+            "statistics": "📊 Statistiken anzeigen: Erkunden Sie Krankheitstrends und Daten auf einer interaktiven Karte.",
+            "manage_data": "📂 Daten verwalten: Überprüfen Sie vorhandene Datensätze oder importieren Sie neue Daten als Administrator.",
+            "analyze": "🔍 Trends analysieren: Tauchen Sie tiefer in die Daten ein, um Muster und Erkenntnisse zu entdecken."
+        },
+        "navigation_tip": "Nutzen Sie die Seitenleiste zur Navigation durch das Dashboard.",
+        "help_messages": {
+            "welcome": "Personalisierte Begrüßung mit Ihrem Anmeldestatus und Benutzernamen.",
+            "dashboard_intro": "Übersicht über die Dashboard-Funktionen.",
+            "action_statistics": "Zugriff auf interaktive Visualisierungen und Karten.",
+            "action_manage_data": "Administrative Funktionen zur Datenbankverwaltung (nur Admin).",
+            "action_analyze": "Erweiterte Analysewerkzeuge für tiefgehende Datenexploration.",
+            "navigation_tip": "Die Seitenleiste enthält alle verfügbaren Anwendungsbereiche."
+        }
+    },
+    "db_viz": {
+        "title": "Datenbankvisualisierung 🔬",
+        "admin_section": {
+            "update_button": "Datenbank aktualisieren",
+            "progress_text": "Aktualisierung läuft... {percent}%",
+            "success_message": "Datenbank erfolgreich aktualisiert!",
+            "error_message": "Aktualisierung fehlgeschlagen. Bitte prüfen Sie, ob alle Felder ausgefüllt sind."
+        },
+        "error_message": "Keine Daten verfügbar. Bitte importieren Sie Daten in die Datenbank.",
+        "help_messages": {
+            "update_button": "Klicken Sie, um alle Änderungen an der Datenbank zu speichern.",
+            "data_view": "Schreibgeschützte Ansicht der aktuellen Krankheitsdaten.",
+            "progress_bar": "Fortschrittsanzeige der Datenbankaktualisierung."
+        }
+    },
+    "csv_import": {
+        "title": "CSV-Import ↧",
+        "file_uploader": "CSV-Datei auswählen",
+        "preview_title": "Vorschau der CSV-Datei:",
+        "import_button": "CSV in Datenbank importieren",
+        "loading_message": "Import wird durchgeführt...",
+        "success_message": "CSV erfolgreich importiert!",
+        "error_messages": {
+            "api_failure": "Import fehlgeschlagen: {message}",
+            "general_error": "Ein Fehler ist aufgetreten: {error}"
+        },
+        "help_messages": {
+            "file_uploader": "Laden Sie eine CSV-Datei mit Krankheitsdaten hoch. Die Datei sollte Spalten im erforderlichen Format haben.",
+            "import_button": "Klicken Sie, um die angezeigten Daten in das System zu importieren.",
+            "preview": "Vorschau der ersten 5 Zeilen zur Datenüberprüfung vor dem Import."
+        }
+    },
+    "manage_users": {
+        "title": "Benutzerverwaltung 👤",
+        "admin_columns": {
+            "id": "ID",
+            "name": "Name",
+            "email": "E-Mail",
+            "country": "Land",
+            "isAdmin": "Admin"
+        },
+        "update_button": "Benutzerdatenbank aktualisieren",
+        "empty_fields_error": "Bitte stellen Sie sicher, dass alle Felder ausgefüllt sind.",
+        "update_progress": "Aktualisierung läuft... {percent}%",
+        "update_success": "Benutzer erfolgreich aktualisiert!",
+        "update_error": "Aktualisierung fehlgeschlagen. Bitte prüfen Sie die Felder.",
+        "no_data_error": "Keine Benutzerdaten verfügbar oder API-Fehler.",
+        "help_messages": {
+            "update_button": "Klicken Sie, um alle Benutzeränderungen zu speichern.",
+            "readonly_view": "Schreibgeschützte Ansicht aller registrierten Benutzer.",
+            "progress_bar": "Fortschrittsanzeige der Benutzeraktualisierung.",
+            "admin_column": "Aktivieren Sie dies, um Administratorrechte zu erteilen."
+        }
+    },
+    "predictions": {
+        "title": "KI-Vorhersagen 🔮",
+        "input_labels": {
+            "cases": "Fälle",
+            "deaths": "Todesfälle",
+            "recovered": "Genesene",
+            "country": "Land"
+        },
+        "predict_button": "Vorhersagen",
+        "progress_text": "Vorhersage wird berechnet...",
+        "results_title": "Vorhersagen für den nächsten Monat",
+        "results_labels": {
+            "confirmed": "Bestätigte Fälle:",
+            "deaths": "Todesfälle:",
+            "recovered": "Genesene:"
+        },
+        "error_prefix": "Fehler:",
+        "help_messages": {
+            "cases_input": "Aktuelle Anzahl bestätigter Fälle eingeben",
+            "deaths_input": "Aktuelle Anzahl der Todesfälle eingeben",
+            "recovered_input": "Aktuelle Anzahl der Genesenen eingeben",
+            "country_select": "Land für die Analyse auswählen",
+            "predict_button": "Klicken Sie, um Vorhersagen für den nächsten Monat zu generieren",
+            "results_section": "KI-Modellvorhersagen zur Krankheitsentwicklung",
+            "progress_bar": "Vorhersageberechnung - Das KI-Modell analysiert Trends"
+        }
+    },
+    "profile": {
+        "title": "Ihr Profil",
+        "language_selection": "Sprache",
+        "user_info": {
+            "user": "Benutzer:",
+            "email": "E-Mail:",
+            "country": "Land:",
+            "isAdmin": "Admin:"
+        },
+        "password_section": {
+            "title": "Passwort ändern",
+            "current_password": "Aktuelles Passwort",
+            "new_password": "Neues Passwort",
+            "confirm_password": "Passwort bestätigen",
+            "update_button": "Passwort aktualisieren",
+            "errors": {
+                "required": "Alle Felder sind erforderlich.",
+                "mismatch": "Passwörter stimmen nicht überein."
+            },
+            "success": "Passwort erfolgreich geändert!",
+            "api_error": "Passwortänderung fehlgeschlagen."
+        },
+        "logout_button": "Abmelden",
+        "help_messages": {
+            "user_info": "Ihre Kontoinformationen (Name, E-Mail, Berechtigungen).",
+            "language_selector": "Anwendungssprache ändern (nur für Schweizer Benutzer).",
+            "password_toggle": "Klicken Sie, um das Passwortformular anzuzeigen/auszublenden.",
+            "current_password": "Aktuelles Passwort zur Überprüfung eingeben.",
+            "new_password": "Neues Passwort eingeben (mind. 8 Zeichen empfohlen).",
+            "confirm_password": "Neues Passwort zur Bestätigung wiederholen.",
+            "password_update": "Neues Passwort nach Ausfüllen aller Felder übermitteln.",
+            "logout": "Klicken Sie, um sich sicher abzumelden."
+        }
+    },
+    "stats": {
+        "title": "Krankheitsstatistik-Dashboard",
+        "data_fetch": {
+            "no_data": "Keine Daten verfügbar.",
+            "api_error": "Datenabruf fehlgeschlagen: {error}",
+            "general_error": "Ein Fehler ist aufgetreten: {error}"
+        },
+        "filters": {
+            "month_range": {
+                "title": "📅 Monatsbereich auswählen",
+                "label": "Monatsbereich:",
+                "format": "von {start} bis {end}",
+                "help": "Wählen Sie einen aufeinanderfolgenden Monatsbereich zur Datenfilterung."
+            },
+            "statistic": {
+                "title": "📊 Statistik auswählen",
+                "label": "Statistik:",
+                "options": [
+                    "Bestätigt",
+                    "Todesfälle",
+                    "Genesen",
+                    "Neue_Fälle",
+                    "Neue_Todesfälle",
+                    "Neu_Genesene"
+                ],
+                "help": "Wählen Sie die anzuzeigende Statistik: Gesamtwerte oder tägliche Neuwerte."
+            },
+            "disease": {
+                "label": "🦠 Krankheit auswählen",
+                "all_option": "Alle",
+                "help": "Spezifische Krankheit auswählen oder 'Alle' beibehalten."
+            }
+        },
+        "visualizations": {
+            "map_title": "Krankheitsausbreitung nach Land ({stat})",
+            "table_title": "📋 Rohdatentabelle (Barrierefrei)",
+            "help": {
+                "map": "Interaktive Weltkarte der Krankheitsstatistiken nach Ländern.",
+                "table": "Tabellarische Rohdatenansicht mit allen verfügbaren Statistiken."
+            }
+        }
+    }
+}

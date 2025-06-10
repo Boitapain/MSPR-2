@@ -1,0 +1,201 @@
+{
+  "dashboard": {
+    "navigation": {
+      "home": "Home",
+      "home_help": "Go to Home page",
+      "api_docs": "API Documentation",
+      "api_docs_help": "Go to API documentation"
+    },
+    "sections": {
+      "data_management": "Data Management",
+      "data_visualization": "Data Visualization",
+      "settings": "Settings"
+    },
+    "buttons": {
+      "csv_import": "CSV Import",
+      "csv_import_help": "Go to CSV Import page",
+      "database": "Database",
+      "database_help": "Go to Database page",
+      "statistics": "Statistics",
+      "statistics_help": "Go to Statistics page",
+      "predictions": "AI Predictions",
+      "predictions_help": "Go to Predictions page",
+      "manage_users": "Manage Users",
+      "manage_users_help": "Go to Manage Users page",
+      "profile": "Profile",
+      "profile_help": "Go to your Profile's page"
+    }
+  },
+  "page_titles": {
+    "home": "Home",
+    "csv_import": "CSV Import",
+    "database": "Database",
+    "statistics": "Statistics",
+    "profile": "Profile",
+    "predictions": "AI Predictions",
+    "manage_users": "Manage Users"
+  },
+  "home": {
+    "welcome": "Welcome back, {name}! 👋",
+    "intro": {
+      "title": "This is your Disease Tracking Dashboard",
+      "description": "Here, you can monitor and analyze disease data, manage datasets, and gain insights into global health trends."
+    },
+    "actions": {
+      "title": "What would you like to do today?",
+      "statistics": "📊 View Statistics: Explore disease trends and visualize data on an interactive map.",
+      "manage_data": "📂 Manage Data: Review existing records or import new data as an admin in the database.",
+      "analyze": "🔍 Analyze Trends: Dive deeper into the data to uncover patterns and insights."
+    },
+    "navigation_tip": "Use the sidebar to navigate through the dashboard and access the tools you need.",
+    "help_messages": {
+      "welcome": "Personalized greeting showing your login status and user name.",
+      "dashboard_intro": "Overview of the dashboard's purpose and capabilities.",
+      "action_statistics": "Access interactive visualizations and maps of disease data.",
+      "action_manage_data": "Administrative functions for managing the disease database (admin only).",
+      "action_analyze": "Advanced analytical tools for in-depth data exploration.",
+      "navigation_tip": "The sidebar contains all available sections of this application."
+    }
+  },
+  "db_viz": {
+    "title": "Database Visualization 🔬",
+    "admin_section": {
+      "update_button": "Update database",
+      "progress_text": "Updating database... {percent}%",
+      "success_message": "Database updated successfully!",
+      "error_message": "Failed to update database, please ensure there is no empty field."
+    },
+    "error_message": "No data available, please upload data inside the database.",
+    "help_messages": {
+
+      "update_button": "Click to save all changes made to the database. This will update the server with your modifications.",
+      "data_view": "This is a read-only view of the current disease data in the database.",
+      "progress_bar": "Visual indicator showing the progress of database update operation."
+    }
+  },
+  "csv_import": {
+    "title": "CSV Import ↧",
+    "file_uploader": "Choose a CSV file",
+    "preview_title": "Preview of the uploaded CSV file:",
+    "import_button": "Import CSV into Database",
+    "loading_message": "Importing...",
+    "success_message": "CSV imported successfully!",
+    "error_messages": {
+      "api_failure": "Failed to import CSV: {message}",
+      "general_error": "An error occurred: {error}"
+    },
+    "help_messages": {
+      "file_uploader": "Upload a CSV file containing disease data. The file should have columns matching the required format.",
+      "import_button": "Click to import the displayed CSV data into the system. This will send the data to the server for processing.",
+      "preview": "This shows the first 5 rows of your CSV file to verify the data looks correct before importing."
+    }
+  },
+  "manage_users": {
+    "title": "Manage Users 👤",
+    "admin_columns": {
+      "id": "id",
+      "name": "name",
+      "email": "email",
+      "country": "country",
+      "isAdmin": "Admin"
+    },
+    "update_button": "Update users database",
+    "empty_fields_error": "Please ensure there are no empty fields before updating.",
+    "update_progress": "Updating users database... {percent}%",
+    "update_success": "Users updated successfully!",
+    "update_error": "Failed to update users. Please ensure there are no empty fields.",
+    "no_data_error": "No user data available or API error.",
+    "help_messages": {
+      "update_button": "Click to save all changes to the user database. This will update the server with your modifications.",
+      "readonly_view": "This is a read-only view of all registered users in the system.",
+      "progress_bar": "Visual indicator showing the progress of user database update operation."
+    }
+  },
+  "predictions": {
+    "title": "AI Predictions 🔮",
+    "input_labels": {
+      "cases": "Cases",
+      "deaths": "Deaths",
+      "recovered": "Recovered",
+      "country": "Country"
+    },
+    "predict_button": "Predict",
+    "progress_text": "Predicting...",
+    "results_title": "Predictions for the next month",
+    "results_labels": {
+      "confirmed": "Confirmed cases:",
+      "deaths": "Deaths:",
+      "recovered": "Recovered:"
+    },
+    "error_prefix": "Error:",
+    "help_messages": {
+      "cases_input": "Enter the current number of confirmed cases",
+      "deaths_input": "Enter the current number of deaths",
+      "recovered_input": "Enter the current number of recovered cases",
+      "country_select": "Select the country for prediction analysis",
+      "predict_button": "Click to generate AI-powered predictions for next month",
+      "progress_bar": "Prediction in progress - the AI model is analyzing trends"
+    }
+  },
+  "profile": {
+    "title": "Your profile",
+    "language_selection": "Language",
+    "user_info": {
+      "user": "User:",
+      "email": "Email:",
+      "country": "Country:",
+      "isAdmin": "Is Admin:"
+    },
+    "password_section": {
+      "title": "Update your password",
+      "current_password": "Your password",
+      "new_password": "New password",
+      "confirm_password": "Confirm password",
+      "update_button": "Update Password",
+      "errors": {
+        "required": "All fields are required.",
+        "mismatch": "New password and confirm password do not match."
+      },
+      "success": "Password updated successfully!",
+      "api_error": "Failed to update password."
+    },
+    "logout_button": "Logout",
+    "help_messages": {
+      "language_selector": "Change the application language (available for Swiss users only).",
+      "password_toggle": "Click to show/hide the password update form.",
+      "new_password": "Enter your new password (minimum 8 characters recommended).",
+      "confirm_password": "Re-enter your new password to confirm it matches.",
+      "password_update": "Submit your new password after filling all fields.",
+      "logout": "Click to securely log out of your account."
+    }
+  },
+  "stats": {
+    "title": "Disease Statistics Dashboard",
+    "data_fetch": {
+      "no_data": "No data available to display.",
+      "api_error": "Failed to fetch data from the API: {error}",
+      "general_error": "An error occurred: {error}"
+    },
+    "filters": {
+      "month_range": {
+        "title": "📅 Select a consecutive month range",
+        "label": "Month range:",
+        "format": "{start} to {end}"
+      },
+      "statistic": {
+        "title": "📊 Select the statistic to display",
+        "label": "Statistic:",
+        "options": ["Confirmed", "Deaths", "Recovered", "New_cases", "New_deaths", "New_recovered"]
+      },
+      "disease": {
+        "label": "🦠 Select the disease to display",
+        "all_option": "All"
+      }
+    },
+    "visualizations": {
+      "map_title": "Disease Spread by Country ({stat})",
+      "table_title": "📋 Raw Data Table (Accessible)"
+      
+    }
+  }
+}

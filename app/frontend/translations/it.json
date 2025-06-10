@@ -1,0 +1,211 @@
+{
+  "dashboard": {
+    "navigation": {
+      "home": "Home",
+      "home_help": "Vai alla pagina home",
+      "api_docs": "Documentazione API",
+      "api_docs_help": "Accedi alla documentazione delle API"
+    },
+    "sections": {
+      "data_management": "Gestione dati",
+      "data_visualization": "Visualizzazione dati",
+      "settings": "Impostazioni"
+    },
+    "buttons": {
+      "csv_import": "Importa CSV",
+      "csv_import_help": "Vai alla pagina di importazione CSV",
+      "database": "Database",
+      "database_help": "Vai alla pagina del database",
+      "statistics": "Statistiche",
+      "statistics_help": "Vai alla pagina delle statistiche",
+      "predictions": "Previsioni IA",
+      "predictions_help": "Vai alla pagina delle previsioni",
+      "manage_users": "Gestione utenti",
+      "manage_users_help": "Vai alla pagina di gestione utenti",
+      "profile": "Profilo",
+      "profile_help": "Vai alla tua pagina profilo"
+    }
+  },
+  "page_titles": {
+    "home": "Home",
+    "csv_import": "Importa CSV",
+    "database": "Database",
+    "statistics": "Statistiche",
+    "profile": "Profilo",
+    "predictions": "Previsioni IA",
+    "manage_users": "Gestione utenti"
+  },
+  "home": {
+    "welcome": "Bentornato, {name}! 👋",
+    "intro": {
+      "title": "Dashboard di monitoraggio malattie",
+      "description": "Qui puoi monitorare e analizzare dati sulle malattie, gestire dataset e ottenere insight sulle tendenze della salute globale."
+    },
+    "actions": {
+      "title": "Cosa vuoi fare oggi?",
+      "statistics": "📊 Visualizza statistiche: Esplora tendenze e visualizza dati su mappa interattiva.",
+      "manage_data": "📂 Gestisci dati: Rivedi record esistenti o importa nuovi dati come amministratore.",
+      "analyze": "🔍 Analizza tendenze: Esplora i dati per scoprire modelli e insight."
+    },
+    "navigation_tip": "Usa la barra laterale per navigare e accedere agli strumenti necessari.",
+    "help_messages": {
+      "welcome": "Messaggio personalizzato con stato di accesso e nome utente.",
+      "dashboard_intro": "Panoramica delle funzionalità della dashboard.",
+      "action_statistics": "Accesso a visualizzazioni interattive e mappe dei dati.",
+      "action_manage_data": "Funzioni amministrative per gestire il database (solo admin).",
+      "action_analyze": "Strumenti avanzati per analisi approfondite.",
+      "navigation_tip": "La barra laterale contiene tutte le sezioni disponibili."
+    }
+  },
+  "db_viz": {
+    "title": "Visualizzazione database 🔬",
+    "admin_section": {
+      "update_button": "Aggiorna database",
+      "progress_text": "Aggiornamento in corso... {percent}%",
+      "success_message": "Database aggiornato con successo!",
+      "error_message": "Aggiornamento fallito, verificare che non ci siano campi vuoti."
+    },
+    "error_message": "Nessun dato disponibile, importare dati nel database.",
+    "help_messages": {
+      "update_button": "Clicca per salvare tutte le modifiche al database.",
+      "data_view": "Visualizzazione in sola lettura dei dati correnti.",
+      "progress_bar": "Indicatore visivo dello stato di aggiornamento."
+    }
+  },
+  "csv_import": {
+    "title": "Importa CSV ↧",
+    "file_uploader": "Seleziona file CSV",
+    "preview_title": "Anteprima del file CSV:",
+    "import_button": "Importa nel database",
+    "loading_message": "Importazione in corso...",
+    "success_message": "CSV importato con successo!",
+    "error_messages": {
+      "api_failure": "Importazione fallita: {message}",
+      "general_error": "Si è verificato un errore: {error}"
+    },
+    "help_messages": {
+      "file_uploader": "Carica un file CSV con dati sulle malattie. Deve avere colonne nel formato richiesto.",
+      "import_button": "Clicca per importare i dati visualizzati nel sistema.",
+      "preview": "Anteprima delle prime 5 righe per verificare i dati prima dell'import."
+    }
+  },
+  "manage_users": {
+    "title": "Gestione utenti 👤",
+    "admin_columns": {
+      "id": "ID",
+      "name": "Nome",
+      "email": "Email",
+      "country": "Paese",
+      "isAdmin": "Admin"
+    },
+    "update_button": "Aggiorna utenti",
+    "empty_fields_error": "Verificare che non ci siano campi vuoti prima di aggiornare.",
+    "update_progress": "Aggiornamento in corso... {percent}%",
+    "update_success": "Utenti aggiornati con successo!",
+    "update_error": "Aggiornamento fallito. Verificare che non ci siano campi vuoti.",
+    "no_data_error": "Nessun dato utente disponibile o errore API.",
+    "help_messages": {
+      "update_button": "Clicca per salvare le modifiche agli utenti.",
+      "readonly_view": "Visualizzazione in sola lettura di tutti gli utenti registrati.",
+      "progress_bar": "Indicatore di avanzamento dell'aggiornamento.",
+      "admin_column": "Seleziona per concedere privilegi amministrativi."
+    }
+  },
+  "predictions": {
+    "title": "Previsioni IA 🔮",
+    "input_labels": {
+      "cases": "Casi",
+      "deaths": "Decessi",
+      "recovered": "Guarigioni",
+      "country": "Paese"
+    },
+    "predict_button": "Prevedi",
+    "progress_text": "Previsione in corso...",
+    "results_title": "Previsioni per il prossimo mese",
+    "results_labels": {
+      "confirmed": "Casi confermati:",
+      "deaths": "Decessi:",
+      "recovered": "Guarigioni:"
+    },
+    "error_prefix": "Errore:",
+    "help_messages": {
+      "cases_input": "Inserisci il numero attuale di casi confermati",
+      "deaths_input": "Inserisci il numero attuale di decessi",
+      "recovered_input": "Inserisci il numero attuale di guarigioni",
+      "country_select": "Seleziona il paese per l'analisi",
+      "predict_button": "Clicca per generare previsioni per il prossimo mese",
+      "results_section": "Previsioni del modello IA per l'andamento della malattia",
+      "progress_bar": "Previsione in corso - il modello IA sta analizzando i trend"
+    }
+  },
+  
+  "profile": {
+    "title": "Il tuo profilo",
+    "language_selection": "Lingua",
+    "user_info": {
+      "user": "Utente:",
+      "email": "Email:",
+      "country": "Paese:",
+      "isAdmin": "Admin:"
+    },
+    "password_section": {
+      "title": "Aggiorna password",
+      "current_password": "Password attuale",
+      "new_password": "Nuova password",
+      "confirm_password": "Conferma password",
+      "update_button": "Aggiorna",
+      "errors": {
+        "required": "Tutti i campi sono obbligatori.",
+        "mismatch": "Le password non coincidono."
+      },
+      "success": "Password aggiornata con successo!",
+      "api_error": "Aggiornamento password fallito."
+    },
+    "logout_button": "Disconnetti",
+    "help_messages": {
+      "user_info": "Informazioni del tuo account (nome, email, privilegi).",
+      "language_selector": "Cambia lingua applicazione (disponibile solo per utenti svizzeri).",
+      "password_toggle": "Clicca per mostrare/nascondere il modulo di aggiornamento password.",
+      "current_password": "Inserisci la password attuale per verifica.",
+      "new_password": "Inserisci nuova password (minimo 8 caratteri consigliato).",
+      "confirm_password": "Conferma la nuova password.",
+      "password_update": "Invia la nuova password dopo aver compilato tutti i campi.",
+      "logout": "Clicca per uscire dal tuo account."
+    }
+  },
+  "stats": {
+    "title": "Dashboard statistiche malattie",
+    "data_fetch": {
+      "no_data": "Nessun dato disponibile.",
+      "api_error": "Errore nel recupero dati: {error}",
+      "general_error": "Si è verificato un errore: {error}"
+    },
+    "filters": {
+      "month_range": {
+        "title": "📅 Seleziona intervallo mesi",
+        "label": "Intervallo mesi:",
+        "format": "da {start} a {end}",
+        "help": "Seleziona un intervallo di mesi consecutivi per filtrare i dati."
+      },
+      "statistic": {
+        "title": "📊 Seleziona statistica",
+        "label": "Statistica:",
+        "options": ["Confermati", "Decessi", "Guarigioni", "Nuovi_casi", "Nuovi_decessi", "Nuove_guarigioni"],
+        "help": "Scegli quale statistica visualizzare: totali o nuovi valori giornalieri."
+      },
+      "disease": {
+        "label": "🦠 Seleziona malattia",
+        "all_option": "Tutte",
+        "help": "Filtra per malattia specifica o mantieni 'Tutte'."
+      }
+    },
+    "visualizations": {
+      "map_title": "Diffusione per paese ({stat})",
+      "table_title": "📋 Dati grezzi (Accessibile)",
+      "help": {
+        "map": "Mappa interattiva che mostra la diffusione delle statistiche per paese.",
+        "table": "Visualizzazione tabellare dei dati grezzi con tutte le statistiche disponibili."
+      }
+    }
+  }
+}
