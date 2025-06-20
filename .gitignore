@@ -18,7 +18,9 @@ app/api/disease_track.db
 app/notebook/mlruns/*
 app/notebook/.ipynb_checkpoints
 app/api/.pytest_cache/
+notebook/logs/
 
 .vscode
+
 
 .requirements.txt
