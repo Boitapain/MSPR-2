@@ -19,6 +19,8 @@ app/notebook/mlruns/*
 app/notebook/.ipynb_checkpoints
 app/api/.pytest_cache/
 notebook/logs/
+.DS_Store
+notebook/.DS_Store
 
 .vscode
 
