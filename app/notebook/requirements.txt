@@ -7,3 +7,4 @@ seaborn==0.13.2
 shap
 lime
 tensorflow
+xgboost
