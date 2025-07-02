@@ -114,6 +114,16 @@
   "predictions": {
     "title": "AI Predictions 🔮",
     "input_labels": {
+      "model_version": "Model Version",
+      "current_cases": "Current Cases",
+      "current_deaths": "Current Deaths",
+      "current_recovered": "Current Recovered",
+      "month1_cases": "Month-1 Cases",
+      "month1_deaths": "Month-1 Deaths",
+      "month1_recovered": "Month-1 Recovered",
+      "month2_cases": "Month-2 Cases",
+      "month2_deaths": "Month-2 Deaths",
+      "month2_recovered": "Month-2 Recovered",
       "cases": "Cases",
       "deaths": "Deaths",
       "recovered": "Recovered",

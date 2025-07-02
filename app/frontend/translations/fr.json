@@ -113,9 +113,19 @@
   "predictions": {
     "title": "Prédictions IA 🔮",
     "input_labels": {
+      "model_version": "Version du modèle",
+      "current_cases": "Cas actuels",
+      "current_deaths": "Décès actuels",
+      "current_recovered": "Guérisons actuelles",
+      "month1_cases": "Cas du mois-1",
+      "month1_deaths": "Décès du mois-1",
+      "month1_recovered": "Guérisons du mois-1",
+      "month2_cases": "Cas du mois-2",
+      "month2_deaths": "Décès du mois-2",
+      "month2_recovered": "Guérisons du mois-2",
       "cases": "Cas",
       "deaths": "Décès",
-      "recovered": "Guérisons",
+      "recovered": "Guéris",
       "country": "Pays"
     },
     "predict_button": "Prédire",
@@ -124,15 +134,15 @@
     "results_labels": {
       "confirmed": "Cas confirmés :",
       "deaths": "Décès :",
-      "recovered": "Guérisons :"
+      "recovered": "Guéris :"
     },
     "error_prefix": "Erreur :",
     "help_messages": {
       "cases_input": "Entrez le nombre actuel de cas confirmés",
       "deaths_input": "Entrez le nombre actuel de décès",
       "recovered_input": "Entrez le nombre actuel de guérisons",
-      "country_select": "Sélectionnez le pays pour l'analyse",
-      "predict_button": "Cliquez pour générer des prédictions pour le mois prochain",
+      "country_select": "Sélectionnez le pays pour l’analyse des prédictions",
+      "predict_button": "Cliquez pour générer des prédictions IA pour le mois prochain",
       "progress_bar": "Prédiction en cours - le modèle IA analyse les tendances"
     }
   },

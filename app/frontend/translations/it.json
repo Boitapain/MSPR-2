@@ -112,11 +112,21 @@
     }
   },
   "predictions": {
-    "title": "Previsioni IA 🔮",
+    "title": "Previsioni AI 🔮",
     "input_labels": {
+      "model_version": "Versione del modello",
+      "current_cases": "Casi attuali",
+      "current_deaths": "Morti attuali",
+      "current_recovered": "Guariti attuali",
+      "month1_cases": "Casi del mese-1",
+      "month1_deaths": "Morti del mese-1",
+      "month1_recovered": "Guariti del mese-1",
+      "month2_cases": "Casi del mese-2",
+      "month2_deaths": "Morti del mese-2",
+      "month2_recovered": "Guariti del mese-2",
       "cases": "Casi",
-      "deaths": "Decessi",
-      "recovered": "Guarigioni",
+      "deaths": "Morti",
+      "recovered": "Guariti",
       "country": "Paese"
     },
     "predict_button": "Prevedi",
@@ -124,21 +134,19 @@
     "results_title": "Previsioni per il prossimo mese",
     "results_labels": {
       "confirmed": "Casi confermati:",
-      "deaths": "Decessi:",
-      "recovered": "Guarigioni:"
+      "deaths": "Morti:",
+      "recovered": "Guariti:"
     },
     "error_prefix": "Errore:",
     "help_messages": {
       "cases_input": "Inserisci il numero attuale di casi confermati",
-      "deaths_input": "Inserisci il numero attuale di decessi",
-      "recovered_input": "Inserisci il numero attuale di guarigioni",
-      "country_select": "Seleziona il paese per l'analisi",
-      "predict_button": "Clicca per generare previsioni per il prossimo mese",
-      "results_section": "Previsioni del modello IA per l'andamento della malattia",
-      "progress_bar": "Previsione in corso - il modello IA sta analizzando i trend"
+      "deaths_input": "Inserisci il numero attuale di morti",
+      "recovered_input": "Inserisci il numero attuale di guariti",
+      "country_select": "Seleziona il paese per l'analisi delle previsioni",
+      "predict_button": "Clicca per generare previsioni con l'intelligenza artificiale per il prossimo mese",
+      "progress_bar": "Previsione in corso - il modello AI sta analizzando le tendenze"
     }
   },
-  
   "profile": {
     "title": "Il tuo profilo",
     "language_selection": "Lingua",

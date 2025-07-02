@@ -150,6 +150,75 @@ def predict():
         return jsonify({"prediction": prediction.tolist()}), 200
     except Exception as e:
         return jsonify({"message": str(e)}), 500
+    
+@app.route('/predict_v2', methods=['POST'])
+def predict_v2():
+    data = request.get_json()
+    model_path = os.path.join(os.path.dirname(__file__), 'model_v2.pkl')
+    
+    if not data:
+        return jsonify({"message": "No data provided"}), 400
+    
+    try:
+        # Load model
+        model = pickle.load(open(model_path, 'rb'))
+        
+        # Create input DataFrame with lag features
+        input_df = pd.DataFrame([{
+            "Confirmed_lag1": data["cases_lag1"],
+            "Deaths_lag1": data["deaths_lag1"],
+            "Recovered_lag1": data["recovered_lag1"],
+            "Confirmed_lag2": data["cases_lag2"],
+            "Deaths_lag2": data["deaths_lag2"],
+            "Recovered_lag2": data["recovered_lag2"],
+            "Confirmed_lag3": data["cases_lag3"],
+            "Deaths_lag3": data["deaths_lag3"],
+            "Recovered_lag3": data["recovered_lag3"],
+            "Country_encoded": data["country"],
+            "Population": data["population"]
+        }])
+        
+        # Calculate per 100K metrics
+        input_df['Confirmed_per_100K'] = input_df["Confirmed_lag1"] / (input_df["Population"] / 100000)
+        input_df['Deaths_per_100K'] = input_df["Deaths_lag1"] / (input_df["Population"] / 100000)
+        input_df['Recovered_per_100K'] = input_df["Recovered_lag1"] / (input_df["Population"] / 100000)
+        
+        # Calculate rolling averages (matching notebook approach)
+        input_df['Confirmed_rolling_avg3'] = (input_df["Confirmed_lag1"] + 
+                                            input_df["Confirmed_lag2"] + 
+                                            input_df["Confirmed_lag3"]) / 3
+        input_df['Deaths_rolling_avg3'] = (input_df["Deaths_lag1"] + 
+                                            input_df["Deaths_lag2"] + 
+                                            input_df["Deaths_lag3"]) / 3
+        input_df['Recovered_rolling_avg3'] = (input_df["Recovered_lag1"] + 
+                                            input_df["Recovered_lag2"] + 
+                                            input_df["Recovered_lag3"]) / 3
+        
+        # Calculate trends (matching notebook approach)
+        input_df['Confirmed_trend'] = (input_df["Confirmed_lag1"] - input_df["Confirmed_lag2"] + 
+                                    input_df["Confirmed_lag2"] - input_df["Confirmed_lag3"]) / 2
+        input_df['Deaths_trend'] = (input_df["Deaths_lag1"] - input_df["Deaths_lag2"] + 
+                                    input_df["Deaths_lag2"] - input_df["Deaths_lag3"]) / 2
+        input_df['Recovered_trend'] = (input_df["Recovered_lag1"] - input_df["Recovered_lag2"] + 
+                                    input_df["Recovered_lag2"] - input_df["Recovered_lag3"]) / 2
+        
+        # Select only the features the model expects
+        features = [
+            'Confirmed_lag1', 'Deaths_lag1', 'Recovered_lag1', 'Country_encoded',
+            'Confirmed_per_100K', 'Deaths_per_100K', 'Recovered_per_100K',
+            'Confirmed_rolling_avg3', 'Deaths_rolling_avg3', 'Recovered_rolling_avg3',
+            'Confirmed_trend', 'Deaths_trend', 'Recovered_trend'
+        ]
+        X = input_df[features]
+        
+        # Make prediction
+        prediction = model.predict(X)
+        
+        # Return simple prediction results
+        return jsonify({"prediction": prediction.tolist()}), 200
+        
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

@@ -114,13 +114,23 @@
     "predictions": {
         "title": "KI-Vorhersagen 🔮",
         "input_labels": {
+            "model_version": "Modellversion",
+            "current_cases": "Aktuelle Fälle",
+            "current_deaths": "Aktuelle Todesfälle",
+            "current_recovered": "Aktuell Genesene",
+            "month1_cases": "Fälle Monat-1",
+            "month1_deaths": "Todesfälle Monat-1",
+            "month1_recovered": "Genesene Monat-1",
+            "month2_cases": "Fälle Monat-2",
+            "month2_deaths": "Todesfälle Monat-2",
+            "month2_recovered": "Genesene Monat-2",
             "cases": "Fälle",
             "deaths": "Todesfälle",
             "recovered": "Genesene",
             "country": "Land"
         },
         "predict_button": "Vorhersagen",
-        "progress_text": "Vorhersage wird berechnet...",
+        "progress_text": "Vorhersage läuft...",
         "results_title": "Vorhersagen für den nächsten Monat",
         "results_labels": {
             "confirmed": "Bestätigte Fälle:",
@@ -129,13 +139,12 @@
         },
         "error_prefix": "Fehler:",
         "help_messages": {
-            "cases_input": "Aktuelle Anzahl bestätigter Fälle eingeben",
-            "deaths_input": "Aktuelle Anzahl der Todesfälle eingeben",
-            "recovered_input": "Aktuelle Anzahl der Genesenen eingeben",
-            "country_select": "Land für die Analyse auswählen",
-            "predict_button": "Klicken Sie, um Vorhersagen für den nächsten Monat zu generieren",
-            "results_section": "KI-Modellvorhersagen zur Krankheitsentwicklung",
-            "progress_bar": "Vorhersageberechnung - Das KI-Modell analysiert Trends"
+            "cases_input": "Geben Sie die aktuelle Anzahl bestätigter Fälle ein",
+            "deaths_input": "Geben Sie die aktuelle Anzahl der Todesfälle ein",
+            "recovered_input": "Geben Sie die aktuelle Anzahl der Genesenen ein",
+            "country_select": "Wählen Sie das Land für die Vorhersageanalyse aus",
+            "predict_button": "Klicken Sie, um KI-gestützte Vorhersagen für den nächsten Monat zu erstellen",
+            "progress_bar": "Vorhersage läuft - das KI-Modell analysiert die Trends"
         }
     },
     "profile": {
