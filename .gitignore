@@ -14,6 +14,7 @@ app/frontend/__pycache__/
 app/disease_track.db
 app/notebook/data_etl_output.csv
 app/notebook/model.pkl
+app/notebook/model_v2.pkl
 app/api/disease_track.db
 app/notebook/mlruns/*
 app/notebook/.ipynb_checkpoints

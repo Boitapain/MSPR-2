@@ -27,6 +27,7 @@ services:
     volumes:
       - ./app/notebook:/app
       - ./app/api/model.pkl:/app/model.pkl
+      - ./app/api/model.pkl:/app/model_v2.pkl
     restart: unless-stopped
 
   mlflow:
