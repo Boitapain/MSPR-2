@@ -9,6 +9,8 @@ from db import (
     initialize_db, update_users as db_update_users, update_user_password
 )
 
+# Constants
+NO_DATA_PROVIDED_MESSAGE = "No data provided"
 
 app = Flask(__name__)
 
@@ -64,7 +66,7 @@ def update_users_route():
     print("Received data for update:", df)  # Debugging line to check received data
     
     if df is None or not df:
-        return jsonify({"message": "No data provided"}), 400
+        return jsonify({"message": NO_DATA_PROVIDED_MESSAGE}), 400
     if pd.read_json(StringIO(df)).isnull().values.any():
         return jsonify({"message": "Data contains null values"}), 400
     try:
@@ -120,7 +122,7 @@ def update_diseases_route():
     df = data.get('diseases')
     
     if df is None or not df:
-        return jsonify({"message": "No data provided"}), 400
+        return jsonify({"message": NO_DATA_PROVIDED_MESSAGE}), 400
     if pd.read_json(StringIO(df)).isnull().values.any():
         return jsonify({"message": "Data contains null values"}), 400
     
@@ -136,7 +138,7 @@ def predict():
     model_path = os.path.join(os.path.dirname(__file__), 'model.pkl')
     
     if not data:
-        return jsonify({"message": "No data provided"}), 400
+        return jsonify({"message": NO_DATA_PROVIDED_MESSAGE}), 400
     
     try:
         model = pickle.load(open(model_path, 'rb'))
@@ -157,7 +159,7 @@ def predict_v2():
     model_path = os.path.join(os.path.dirname(__file__), 'model_v2.pkl')
     
     if not data:
-        return jsonify({"message": "No data provided"}), 400
+        return jsonify({"message": NO_DATA_PROVIDED_MESSAGE}), 400
     
     try:
         # Load model

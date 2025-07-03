@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 from translations import load_translations
 
-def csv_import(user):
+def csv_import():
     t = load_translations(st.session_state.get('language', 'en'))['csv_import']
     
     st.markdown(f"<h3 style='text-align: center;'>{t['title']}</h3>", unsafe_allow_html=True)
