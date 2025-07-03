@@ -130,7 +130,7 @@ def profile(user):
                             st.error(response.json().get("message", t['password_section']['api_error']))
 
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, _, _ = st.columns(4)
     with col1:
         if st.button(
             t['logout_button'], 
