@@ -63,22 +63,30 @@ def show_readonly_view(users, t):
     with cols[1]:
         st.dataframe(users, help=t['help_messages']['readonly_view'])
 
-def manage_users(user):
+def get_translations():
     lang = st.session_state.get('language', 'en')
     translations = load_translations(lang)
-    t = translations['manage_users']
+    return translations['manage_users']
 
-    st.markdown(f"<h3 style='text-align: center;'>{t['title']}</h3>", unsafe_allow_html=True)
-
+def handle_users_updated():
     if 'users_updated' in st.session_state:
         st.session_state.pop("users_updated")
         st.rerun()
 
+def fetch_and_display_users(user, t):
     try:
         users = fetch_users(st.session_state['API_URL'])
-        if user["isAdmin"]:
-            show_admin_editor(users, t, st.session_state['API_URL'])
-        else:
-            show_readonly_view(users, t)
     except requests.exceptions.RequestException:
         st.error(t['no_data_error'])
+        return
+
+    if user.get("isAdmin"):
+        show_admin_editor(users, t, st.session_state['API_URL'])
+    else:
+        show_readonly_view(users, t)
+
+def manage_users(user):
+    t = get_translations()
+    st.markdown(f"<h3 style='text-align: center;'>{t['title']}</h3>", unsafe_allow_html=True)
+    handle_users_updated()
+    fetch_and_display_users(user, t)
