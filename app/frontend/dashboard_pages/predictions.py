@@ -180,7 +180,7 @@ def predictions(user):
         selected_country_name = country_display[0]
 
     # Predict button
-    col_left, col_right = st.columns([1, 4])
+    col_left, _ = st.columns([1, 4])  # Variable inutilisée remplacée par _
     with col_left:
         predict_clicked = st.button(
             t['predict_button'],
