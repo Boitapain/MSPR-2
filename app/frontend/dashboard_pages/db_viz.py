@@ -58,5 +58,5 @@ def db_viz(user):
 
         else:
             st.dataframe(diseases)
-    except requests.exceptions.RequestException as e:
+    except requests.exceptions.RequestException:
         st.error(t["error_message"])
