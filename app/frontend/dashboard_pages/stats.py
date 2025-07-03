@@ -6,7 +6,7 @@ from translations import load_translations
 
 from translations import load_translations
 
-def stats(user):
+def stats():
     lang = st.session_state['language']
     translations = load_translations(lang)
     t = translations['stats']
