@@ -125,7 +125,7 @@ def dashboard(user):
     elif st.session_state['dashboard_page'] == 'profile':
         profile(user)
     elif st.session_state['dashboard_page'] == 'predictions':
-        predictions(user)
+        predictions()
     elif st.session_state['dashboard_page'] == 'manage_users':
         manage_users(user)
 if __name__ == "__main__":
