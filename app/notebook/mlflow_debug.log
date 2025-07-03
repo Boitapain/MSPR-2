@@ -28,3 +28,6 @@
 2025-07-03 10:07:27,501 - WARNING - Retrying (Retry(total=3, connect=3, read=7, redirect=7, status=7)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f0f42bc1580>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=test
 2025-07-03 10:07:27,503 - DEBUG - Starting new HTTP connection (5): localhost:8080
 2025-07-03 10:07:27,506 - DEBUG - Incremented Retry for (url='/api/2.0/mlflow/experiments/get-by-name?experiment_name=test'): Retry(total=2, connect=2, read=7, redirect=7, status=7)
+2025-07-03 10:07:59,904 - WARNING - Retrying (Retry(total=2, connect=2, read=7, redirect=7, status=7)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f0f42bc1730>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=test
+2025-07-03 10:07:59,908 - DEBUG - Starting new HTTP connection (6): localhost:8080
+2025-07-03 10:07:59,910 - DEBUG - Incremented Retry for (url='/api/2.0/mlflow/experiments/get-by-name?experiment_name=test'): Retry(total=1, connect=1, read=7, redirect=7, status=7)
