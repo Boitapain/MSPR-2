@@ -275,3 +275,79 @@ paths:
           description: No data provided
         "500":
           description: Internal server error
+
+  /predict_v2:
+    post:
+      summary: Predict disease progression with advanced features (v2)
+      description: Advanced prediction endpoint that uses lag features, population data, and calculated metrics like per-capita rates, rolling averages, and trends
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cases_lag1:
+                  type: integer
+                  description: Number of confirmed cases (lag 1)
+                deaths_lag1:
+                  type: integer
+                  description: Number of deaths (lag 1)
+                recovered_lag1:
+                  type: integer
+                  description: Number of recovered cases (lag 1)
+                cases_lag2:
+                  type: integer
+                  description: Number of confirmed cases (lag 2)
+                deaths_lag2:
+                  type: integer
+                  description: Number of deaths (lag 2)
+                recovered_lag2:
+                  type: integer
+                  description: Number of recovered cases (lag 2)
+                cases_lag3:
+                  type: integer
+                  description: Number of confirmed cases (lag 3)
+                deaths_lag3:
+                  type: integer
+                  description: Number of deaths (lag 3)
+                recovered_lag3:
+                  type: integer
+                  description: Number of recovered cases (lag 3)
+                country:
+                  type: integer
+                  description: Encoded country value
+                population:
+                  type: integer
+                  description: Country population for per-capita calculations
+              required:
+                - cases_lag1
+                - deaths_lag1
+                - recovered_lag1
+                - cases_lag2
+                - deaths_lag2
+                - recovered_lag2
+                - cases_lag3
+                - deaths_lag3
+                - recovered_lag3
+                - country
+                - population
+      responses:
+        "200":
+          description: Prediction result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prediction:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: number
+                    description: Predicted values for confirmed cases, deaths, and recovered cases
+        "400":
+          description: No data provided
+        "500":
+          description: Internal server error

@@ -31,19 +31,32 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Step 4: Run tests
-    - name: Run tests
+    # Step 4: Run API tests
+    - name: Run API tests
       run: |
         source .venv/bin/activate
         PYTHONPATH=$(pwd) pytest app/api/test_api.py
+
+    # Step 5: Install frontend dependencies
+    - name: Install frontend dependencies
+      run: |
+        source .venv/bin/activate
+        pip install -r app/frontend/requirements.txt
+
+    # Step 6: Run frontend tests
+    - name: Run frontend tests
+      run: |
+        source .venv/bin/activate
+        cd app/frontend
+        PYTHONPATH=$(pwd) pytest test_front.py -v --tb=short
       
-    # Step 5: Zip project for backup if tests pass
+    # Step 7: Zip project for backup if tests pass
     - name: Zip project for backup
       if: ${{ success() }}
       run: |
         zip -r project-backup.zip app
 
-    # Step 6: Upload backup artifact
+    # Step 8: Upload backup artifact
     - name: Upload backup artifact
       if: ${{ success() }}
       uses: actions/upload-artifact@v4
