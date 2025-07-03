@@ -83,4 +83,4 @@ def stats():
         st.error(t['data_fetch']['general_error'].format(error=e))
 
 if __name__ == "__main__":
-    stats(None)
+    stats()
