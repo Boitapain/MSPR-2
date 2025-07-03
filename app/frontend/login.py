@@ -11,7 +11,7 @@ def login():
     email = st.text_input("Email")
     password = st.text_input("Password", type="password")
     
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, _, _ = st.columns(4)
     
     with col1:
         if st.button("Login", help="Connect to your account", key="login_button", type="primary", icon=":material/login:"):
