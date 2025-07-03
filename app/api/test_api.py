@@ -317,6 +317,156 @@ class ApiTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         # This will fail if the prediction matches the expected correct result
         self.assertNotEqual(response.get_json()["prediction"], [[138933, 15056, 49670]])
-        
-if __name__ == "__main__":
-    unittest.main()
+
+    @patch("pickle.load")
+    @patch("builtins.open")
+    def test_predict_v2_success(self, mock_open_builtin, mock_pickle_load):
+        """Test successful prediction with predict_v2 route."""
+        mock_model = MagicMock()
+        mock_prediction = MagicMock()
+        mock_prediction.tolist.return_value = [[25000, 800, 5000]]
+        mock_model.predict.return_value = mock_prediction
+        mock_pickle_load.return_value = mock_model
+
+        payload = {
+            "cases_lag1": 10000,
+            "deaths_lag1": 200,
+            "recovered_lag1": 2000,
+            "cases_lag2": 9500,
+            "deaths_lag2": 190,
+            "recovered_lag2": 1900,
+            "cases_lag3": 9000,
+            "deaths_lag3": 180,
+            "recovered_lag3": 1800,
+            "country": 174,
+            "population": 67000000
+        }
+        response = self.app.post('/predict_v2', json=payload)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("prediction", response.get_json())
+        self.assertEqual(response.get_json()["prediction"], [[25000, 800, 5000]])
+
+    def test_predict_v2_no_data(self):
+        """Test predict_v2 route with no data provided."""
+        response = self.app.post('/predict_v2', json={})
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("No data provided", response.get_data(as_text=True))
+
+    def test_predict_v2_missing_field(self):
+        """Test predict_v2 route with missing required field."""
+        payload = {
+            "cases_lag1": 10000,
+            "deaths_lag1": 200,
+            "recovered_lag1": 2000,
+            "cases_lag2": 9500,
+            "deaths_lag2": 190,
+            "recovered_lag2": 1900,
+            "cases_lag3": 9000,
+            "deaths_lag3": 180,
+            "recovered_lag3": 1800,
+            "country": 174
+            # "population" is missing
+        }
+        response = self.app.post('/predict_v2', json=payload)
+        self.assertEqual(response.status_code, 500)
+        self.assertIn("population", response.get_data(as_text=True))
+
+    @patch("pickle.load")
+    @patch("builtins.open")
+    def test_predict_v2_model_error(self, mock_open_builtin, mock_pickle_load):
+        """Test predict_v2 route with model prediction error."""
+        mock_model = MagicMock()
+        mock_model.predict.side_effect = Exception("Model prediction failed")
+        mock_pickle_load.return_value = mock_model
+
+        payload = {
+            "cases_lag1": 10000,
+            "deaths_lag1": 200,
+            "recovered_lag1": 2000,
+            "cases_lag2": 9500,
+            "deaths_lag2": 190,
+            "recovered_lag2": 1900,
+            "cases_lag3": 9000,
+            "deaths_lag3": 180,
+            "recovered_lag3": 1800,
+            "country": 174,
+            "population": 67000000
+        }
+        response = self.app.post('/predict_v2', json=payload)
+        self.assertEqual(response.status_code, 500)
+        self.assertIn("Model prediction failed", response.get_data(as_text=True))
+
+    @patch("pickle.load", side_effect=Exception("Model file not found"))
+    @patch("builtins.open")
+    def test_predict_v2_model_load_error(self, mock_open_builtin, mock_pickle_load):
+        """Test predict_v2 route with model loading error."""
+        payload = {
+            "cases_lag1": 10000,
+            "deaths_lag1": 200,
+            "recovered_lag1": 2000,
+            "cases_lag2": 9500,
+            "deaths_lag2": 190,
+            "recovered_lag2": 1900,
+            "cases_lag3": 9000,
+            "deaths_lag3": 180,
+            "recovered_lag3": 1800,
+            "country": 174,
+            "population": 67000000
+        }
+        response = self.app.post('/predict_v2', json=payload)
+        self.assertEqual(response.status_code, 500)
+        self.assertIn("Model file not found", response.get_data(as_text=True))
+
+    @patch("pickle.load")
+    @patch("builtins.open")
+    def test_predict_v2_with_zero_population(self, mock_open_builtin, mock_pickle_load):
+        """Test predict_v2 route with zero population (division by zero case)."""
+        mock_model = MagicMock()
+        mock_prediction = MagicMock()
+        mock_prediction.tolist.return_value = [[float('inf'), float('inf'), float('inf')]]
+        mock_model.predict.return_value = mock_prediction
+        mock_pickle_load.return_value = mock_model
+
+        payload = {
+            "cases_lag1": 10000,
+            "deaths_lag1": 200,
+            "recovered_lag1": 2000,
+            "cases_lag2": 9500,
+            "deaths_lag2": 190,
+            "recovered_lag2": 1900,
+            "cases_lag3": 9000,
+            "deaths_lag3": 180,
+            "recovered_lag3": 1800,
+            "country": 174,
+            "population": 0
+        }
+        response = self.app.post('/predict_v2', json=payload)
+        # Should handle division by zero gracefully
+        self.assertEqual(response.status_code, 200)
+
+    @patch("pickle.load")
+    @patch("builtins.open")
+    def test_predict_v2_negative_values(self, mock_open_builtin, mock_pickle_load):
+        """Test predict_v2 route with negative input values."""
+        mock_model = MagicMock()
+        mock_prediction = MagicMock()
+        mock_prediction.tolist.return_value = [[15000, 300, 3000]]
+        mock_model.predict.return_value = mock_prediction
+        mock_pickle_load.return_value = mock_model
+
+        payload = {
+            "cases_lag1": -1000,  # Negative values
+            "deaths_lag1": -50,
+            "recovered_lag1": -200,
+            "cases_lag2": -950,
+            "deaths_lag2": -45,
+            "recovered_lag2": -190,
+            "cases_lag3": -900,
+            "deaths_lag3": -40,
+            "recovered_lag3": -180,
+            "country": 174,
+            "population": 67000000
+        }
+        response = self.app.post('/predict_v2', json=payload)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("prediction", response.get_json())
