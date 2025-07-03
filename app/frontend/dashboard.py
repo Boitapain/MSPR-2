@@ -121,7 +121,7 @@ def dashboard(user):
     elif st.session_state['dashboard_page'] == 'database':
         db_viz(user)
     elif st.session_state['dashboard_page'] == 'statistics':
-        stats(user)
+        stats()
     elif st.session_state['dashboard_page'] == 'profile':
         profile(user)
     elif st.session_state['dashboard_page'] == 'predictions':
