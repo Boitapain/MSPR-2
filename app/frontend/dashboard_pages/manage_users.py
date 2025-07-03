@@ -75,5 +75,5 @@ def manage_users(user):
             cols = st.columns([1, 2, 1])
             with cols[1]:
                 st.dataframe(users, help=t['help_messages']['readonly_view'])
-    except requests.exceptions.RequestException as e:
+    except requests.exceptions.RequestException:
         st.error(t['no_data_error'])
