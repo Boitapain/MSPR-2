@@ -130,7 +130,7 @@ def profile(user):
     _handle_language_selection(user, lang, t)
     _handle_password_update(user, t)
 
-    col1, col2, _, _ = st.columns(4)
+    col1, _, _, _ = st.columns(4)
     with col1:
         if st.button(
             t['logout_button'], 
