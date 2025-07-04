@@ -1,4 +1,4 @@
-# MSPR 3 & 4
+# MSPR 2
 
 Vous trouverez ci-dessous une description détaillée de notre projet, ainsi que la méthode d'installation grâce à Docker.
 
