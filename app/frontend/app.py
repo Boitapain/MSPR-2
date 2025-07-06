@@ -10,7 +10,7 @@ def navigate_to_create_account():
 def main():
     if os.getenv('RENDER'):
         # Production (Render) environment
-        API_URL = 'https://backend-l0n0.onrender.com'
+        API_URL = 'https://backend-kyd6.onrender.com'
     else:
         # Local development with docker-compose
         API_URL = 'http://api:5000'
